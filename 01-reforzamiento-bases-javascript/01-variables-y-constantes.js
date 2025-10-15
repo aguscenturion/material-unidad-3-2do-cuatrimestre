@@ -1,10 +1,12 @@
 // * Constantes que nunca van a cambiar
 const nombre = "Juan";
-const apellido = "Perez";
+const apellido = "Perezzzzzzzzzzzzzz";
 
 // * Variables que pueden cambiar o voy a querer modificar
-let edad = 30;
-edad = 31;
+let isLogged = false;
+isLogged = true;
+
+// isLogged ? "redirecciona al dashboard" : "redirecciona al login"
 
 // ! No se recomienda usar var
 var ciudad = "Formosa";
@@ -16,9 +18,9 @@ if (true) {
   let nombre = "Pedro";
   const apellido = "Gomez";
   var ciudad = "Chaco"; // ! var se redeclara en el mismo ámbito
-  console.log(nombre); // ? Pedro
-  console.log(apellido); // ? Gomez
-  console.log(ciudad); // ? Valencia
+  // console.log(nombre); // ? Pedro
+  // console.log(apellido); // ? Gomez
+  // console.log(ciudad); // ? Chaco
 }
 
 // * 2. No se pueden redeclarar: let y const no permiten redeclarar la misma variable en el mismo ámbito, mientras que var sí lo permite.

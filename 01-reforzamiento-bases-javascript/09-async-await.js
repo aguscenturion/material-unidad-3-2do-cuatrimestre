@@ -1,7 +1,22 @@
-const getCharacterById = () => {
-  // const url = "https://dragonball-api.com/api/characters/1";
+const getCharacterById = async () => {
+  try {
+    const url = "https://thesimpsonsapi.com/api/characters/5";
+    const urlImage = "https://cdn.thesimpsonsapi.com/500";
 
-  return "Un character";
+    const response = await fetch(url);
+    const data = await response.json();
+
+    // const { portrait_path } = data;
+
+    // const divImage = document.getElementById("container");
+    // const img = document.createElement("img");
+    // img.src = `${urlImage}${portrait_path}`;
+
+    // divImage.append(img);
+  } catch (error) {
+    console.log(error);
+    alert("Ocurrio un error inesperado");
+  }
 };
 
 getCharacterById();
