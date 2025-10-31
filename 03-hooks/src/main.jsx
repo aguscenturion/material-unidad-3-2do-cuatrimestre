@@ -5,9 +5,10 @@ import "./index.css";
 import { Profile } from "./pages/Profile";
 import { About } from "./pages/About";
 import { Form } from "./pages/Form";
+import { App } from "./pages/App";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <Form />
+    <App />
   </StrictMode>
 );
