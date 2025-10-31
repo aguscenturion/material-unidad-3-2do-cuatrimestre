@@ -6,9 +6,11 @@ import { Profile } from "./pages/Profile";
 import { About } from "./pages/About";
 import { Form } from "./pages/Form";
 import { App } from "./pages/App";
+import { SimpleForm } from "./pages/SimpleForm";
+import { MultipleCustomHooks } from "./pages/MultipleCustomHooks";
 
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <App />
-  </StrictMode>
+  // <StrictMode>
+  <MultipleCustomHooks />
+  // </StrictMode>
 );

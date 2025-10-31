@@ -1,13 +1,24 @@
 import { useForm } from "../hooks/useForm";
 
 export const Login = ({ onLogin }) => {
-  const { formState, handleChange, handleSubmit } = useForm({
+  const { formState, handleChange, handleReset } = useForm({
     username: "",
     password: "",
   });
 
   useForm;
   const { username, password } = formState;
+
+  const handleSubmit = (event, onLogin) => {
+    // prevenir que se reincie el formulario
+    event.preventDefault();
+
+    // logica o ejecutar la funcion que resetea el formulario
+    handleReset();
+
+    // onLogin(username);
+    console.log(formState);
+  };
 
   return (
     <form onSubmit={(event) => handleSubmit(event, onLogin)}>

@@ -4,8 +4,8 @@ export const useForm = (initialState) => {
   const [formState, setFormState] = useState(initialState);
   const { username, password } = formState;
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
+  const handleChange = ({ target }) => {
+    const { name, value } = target;
 
     setFormState({
       //voy a dejar tal cual el formulario exeptuando lo que modifique luego.
@@ -31,7 +31,7 @@ export const useForm = (initialState) => {
 
   return {
     formState,
-    // ...formState,
+    ...formState,
     handleChange,
     handleSubmit,
   };
