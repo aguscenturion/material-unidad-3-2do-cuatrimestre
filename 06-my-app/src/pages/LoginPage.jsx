@@ -1,14 +1,35 @@
 import { Link, useNavigate } from "react-router";
+import { useForm } from "../hooks/useForm";
 
 export const LoginPage = () => {
+  const { formState, handleChange } = useForm({
+    username: "",
+    password: "",
+  });
+
   const navigate = useNavigate();
 
-  const handleLogin = (event) => {
+  const handleLogin = async (event) => {
     event.preventDefault();
 
-    localStorage.setItem("isLogged", "true");
+    const peticion = await fetch("http://localhost:4000/api/login", {
+      method: "POST",
+      body: JSON.stringify(formState),
+      headers: {
+        "Content-type": "application/json",
+      },
+    });
 
-    navigate("/");
+    const data = await peticion.json();
+
+    if (!peticion.ok) {
+      return alert(data.message);
+    }
+
+    localStorage.setItem("token", data.token);
+    alert(data.message);
+
+    navigate("/home");
   };
 
   return (
@@ -31,6 +52,8 @@ export const LoginPage = () => {
                 type="text"
                 id="username"
                 name="username"
+                value={formState.username}
+                onChange={handleChange}
                 placeholder="Ingresa tu usuario"
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200"
               />
@@ -47,6 +70,8 @@ export const LoginPage = () => {
                 type="password"
                 id="password"
                 name="password"
+                value={formState.password}
+                onChange={handleChange}
                 placeholder="Ingresa tu contraseña"
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200"
               />

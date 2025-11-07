@@ -4,7 +4,7 @@ export const Navbar = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    localStorage.removeItem("isLogged");
+    localStorage.removeItem("token");
     navigate("/login");
   };
 
